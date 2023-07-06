@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Card from "./shared/Card";
+import Button from "./shared/Button";
 
 const FeedbackForm = () => {
     const [text, setText] = useState('');
@@ -17,8 +18,10 @@ const FeedbackForm = () => {
                         onChange={handleTextChange}
                         type="text"
                         placeholder="Write a opinion"/>
-                        value ={text}
-                    <button type='submit'>Send</button>
+
+                    <Button type='submit' version='primary'>Send</Button>
+                    {/*Btn colors. primary, secondary*/}
+
                 </div>
             </form>
         </Card>
