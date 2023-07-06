@@ -5,10 +5,9 @@ import FeedbackData from "./data/FeedbackData";
 import FeedbackList from "./components/FeedbackList";
 import FeedbackStats from "./components/FeedbackStats";
 import FeedbackForm from "./components/FeedbackForm";
-import {Route, Routes} from "react-router-dom";
 import AboutPage from "./pages/AboutPage";
 import AboutIconLink from "./components/AboutIconLink";
-
+import {Route, Routes} from "react-router-dom";
 
 function App() {
     const [feedback, setFeedback] = useState(FeedbackData);
