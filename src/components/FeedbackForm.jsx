@@ -13,7 +13,7 @@ const FeedbackForm = ({handleAdd}) => {
         if (text === '') {
             setBtnDisabled(true)
             setMessage(null)
-        } else if (text !== '' && text.trim().length<= 10) {
+        } else if (text !== '' && text.trim().length +2 <= 10) {
             setMessage('Text must be at least 10 characters.')
             setBtnDisabled(true)
         } else {
@@ -28,8 +28,8 @@ const FeedbackForm = ({handleAdd}) => {
 
         if (text.trim().length > 10) {
             const newFeedback = {
-                text: text,
-                rating: rating,
+                text,
+                rating,
             }
             handleAdd(newFeedback)
             setText('')
@@ -45,7 +45,9 @@ const FeedbackForm = ({handleAdd}) => {
                     <input
                         onChange={handleTextChange}
                         type="text"
-                        placeholder="Write a opinion"/>
+                        placeholder="Write a opinion"
+                        value={text}
+                    />
 
                     <Button type='submit' version='primary' isDisabled={btnDisabled}>Send</Button>
                     {/*Btn colors. primary, secondary*/}
