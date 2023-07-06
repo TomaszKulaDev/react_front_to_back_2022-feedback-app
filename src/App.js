@@ -1,11 +1,14 @@
 import {nanoid} from "nanoid";
 import {useState} from "react";
 import Header from "./components/Header";
-import './App.css';
 import FeedbackData from "./data/FeedbackData";
 import FeedbackList from "./components/FeedbackList";
 import FeedbackStats from "./components/FeedbackStats";
 import FeedbackForm from "./components/FeedbackForm";
+import {Route, Routes} from "react-router-dom";
+import AboutPage from "./pages/AboutPage";
+import AboutIconLink from "./components/AboutIconLink";
+
 
 function App() {
     const [feedback, setFeedback] = useState(FeedbackData);
@@ -24,14 +27,21 @@ function App() {
     }
 
     return (
-        <>
-            <Header/>
-            <div className="container">
-                <FeedbackForm handleAdd={addFeedback}/>
-                <FeedbackStats feedback={feedback}/>
-                <FeedbackList feedback={feedback} handleDelete={deleteFeedback}/>
-            </div>
-        </>
+        <Routes>
+            <Route path='/' element={
+                <>
+                    <Header text="Feedback IU"/>
+                    <div className="container">
+                    <AboutIconLink/>
+                        <FeedbackForm handleAdd={addFeedback}/>
+                        <FeedbackStats feedback={feedback}/>
+                        <FeedbackList feedback={feedback} handleDelete={deleteFeedback}/>
+                    </div>
+                </>
+            }/>
+            <Route path='/about' element={<AboutPage/>}/>
+        </Routes>
+
     );
 }
 
