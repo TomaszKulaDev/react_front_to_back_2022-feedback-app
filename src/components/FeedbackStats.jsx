@@ -1,7 +1,8 @@
-import React from 'react';
+import {useContext} from 'react';
+import feedbackContext from "../context/FeedbackContext";
 
-const FeedbackStats = ({feedback}) => {
-
+const FeedbackStats = () => {
+    const {feedback} = useContext(feedbackContext)
     //
     let averge = feedback.reduce((acc, cur) => {
         return acc + cur.rating
