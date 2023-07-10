@@ -1,7 +1,7 @@
-import {nanoid} from "nanoid";
-import {useState} from "react";
+
+
 import Header from "./components/Header";
-import FeedbackData from "./data/FeedbackData";
+
 import FeedbackList from "./components/FeedbackList";
 import FeedbackStats from "./components/FeedbackStats";
 import FeedbackForm from "./components/FeedbackForm";
@@ -12,15 +12,6 @@ import {Route, Routes} from "react-router-dom";
 import {FeedbackProvider} from "./context/FeedbackContext";
 
 function App() {
-    const [feedback, setFeedback] = useState(FeedbackData);
-
-    const addFeedback = (newFeedback) => {
-        newFeedback.id = nanoid()
-        setFeedback([newFeedback, ...feedback])
-
-    }
-
-
 
     return (
         <FeedbackProvider>
@@ -31,7 +22,7 @@ function App() {
                         <Header text="Feedback IU"/>
                         <div className="container">
                             <AboutIconLink/>
-                            <FeedbackForm handleAdd={addFeedback}/>
+                            <FeedbackForm/>
                             <FeedbackStats/>
                             <FeedbackList/>
                         </div>
