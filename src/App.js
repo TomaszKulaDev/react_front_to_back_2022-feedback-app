@@ -20,12 +20,7 @@ function App() {
 
     }
 
-    const deleteFeedback = (id) => {
-        if (window.confirm('Are you sure you want to delete?')) {
-            const newFeedback = feedback.filter((item) => item.id !== id)
-            setFeedback(newFeedback)
-        }
-    }
+
 
     return (
         <FeedbackProvider>
@@ -38,7 +33,7 @@ function App() {
                             <AboutIconLink/>
                             <FeedbackForm handleAdd={addFeedback}/>
                             <FeedbackStats/>
-                            <FeedbackList feedback={feedback} handleDelete={deleteFeedback}/>
+                            <FeedbackList/>
                         </div>
                     </>
                 }/>

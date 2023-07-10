@@ -6,15 +6,24 @@ const FeedbackContext = createContext()
 
 export const FeedbackProvider = ({children}) => {
     const [feedback, setFeedback] = useState([{
-            id: 1,
-            text: 'This text is coming from Feedback Context.',
-            rating: 10 }])
+        id: 1,
+        text: 'This text is coming from Feedback Context.',
+        rating: 10
+    }])
 
 
     // 3. Tworzysz funkcje z children w której jest useState np a w nim obiekt i za pomocą propsa value
     // przekazujesz obiekt znajdujący sie w feedback Huraa!:)
 
-    return <FeedbackContext.Provider value={{feedback}}>{children}</FeedbackContext.Provider>
+    const deleteFeedback = (id) => {
+        if (window.confirm('Are you sure you want to delete?')) {
+            const newFeedback = feedback.filter((item) => item.id !== id)
+            setFeedback(newFeedback)
+        }
+    }
+
+
+    return <FeedbackContext.Provider value={{feedback, deleteFeedback}}>{children}</FeedbackContext.Provider>
 
 }
 export default FeedbackContext;

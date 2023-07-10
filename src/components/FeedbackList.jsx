@@ -5,7 +5,7 @@ import {useContext} from "react";
 
 // 6. Import
 
-const FeedbackList = ({handleDelete}) => {
+const FeedbackList = () => {
     const {feedback} = useContext(feedbackContext)
 
 
@@ -18,7 +18,6 @@ const FeedbackList = ({handleDelete}) => {
                     <FeedbackItem
                         key={item.id}
                         item={item}
-                        handleDelete={handleDelete}
                     />
             ))}
         </div>
