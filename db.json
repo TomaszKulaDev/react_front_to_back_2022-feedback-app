@@ -6,24 +6,9 @@
       "text": "This is feedback item 1"
     },
     {
-      "id": 2,
-      "rating": 3,
-      "text": "This is feedback item 2"
-    },
-    {
-      "id": 3,
-      "rating": 5,
-      "text": "This is feedback item 3"
-    },
-    {
-      "rating": "9",
-      "text": "New feedback item from postman.",
-      "id": 4
-    },
-    {
-      "text": "This is a test new Feedback 01!",
+      "text": "bbbbbbbbbbbbb test",
       "rating": 7,
-      "id": 5
+      "id": 2
     }
   ]
 }
