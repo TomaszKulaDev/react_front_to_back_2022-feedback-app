@@ -1,4 +1,3 @@
-import {nanoid} from "nanoid";
 import {createContext, useEffect, useState} from "react";
 
 const FeedbackContext = createContext()
@@ -25,11 +24,20 @@ export const FeedbackProvider = ({children}) => {
         // Fetch data
     }
     // Add feedback.
-    const addFeedback = (newFeedback) => {
-        newFeedback.id = nanoid()
-        setFeedback([newFeedback, ...feedback])
+    const addFeedback = async (newFeedback) => {
+        const response = await fetch(`http://localhost:5000/feedback`,{
+            method:'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newFeedback)
+        })
 
+        const data = await response.json()
+        setFeedback([data, ...feedback])
     }
+
+
     // Delete feedback.
     const deleteFeedback = (id) => {
         if (window.confirm('Are you sure you want to delete?')) {
