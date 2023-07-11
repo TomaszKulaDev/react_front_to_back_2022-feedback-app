@@ -1,5 +1,6 @@
 import {nanoid} from "nanoid";
 import {createContext, useState} from "react";
+
 const FeedbackContext = createContext()
 
 
@@ -38,7 +39,7 @@ export const FeedbackProvider = ({children}) => {
         setFeedback([newFeedback, ...feedback])
 
     }
-// Delete feedback.
+    // Delete feedback.
     const deleteFeedback = (id) => {
         if (window.confirm('Are you sure you want to delete?')) {
             const newFeedback = feedback.filter((item) => item.id !== id)
@@ -54,7 +55,15 @@ export const FeedbackProvider = ({children}) => {
         })
     }
     return <FeedbackContext.Provider
-        value={{feedback, deleteFeedback, addFeedback, editFeedback}}>{children}</FeedbackContext.Provider>
+        value={{
+            feedback,
+            deleteFeedback,
+            addFeedback,
+            editFeedback,
+            // function
+            feedbackEdit
+            // pice of state
+        }}>{children}</FeedbackContext.Provider>
 
 }
 export default FeedbackContext;
